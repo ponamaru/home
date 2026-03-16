@@ -1,0 +1,144 @@
+
+<html>
+<head>
+<style>
+@keyframes upFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px); /* 上に移動 */
+  }
+}
+    .box {
+position: relative;
+  position: fixed;
+      width: 100%;
+      height: 100%;
+z-index: 100;
+left: 0;
+top: 0;
+      background-color: darkgray;
+}
+
+.clip{
+
+  width: 100%;
+  height: 225px;      
+  object-fit: cover; 
+  object-position: center; 
+}
+
+html{
+
+}
+body {
+  background-attachment: fixed;
+  background-size: cover;
+background-image: url("15.png");
+}
+
+#area {
+
+}
+.pC {
+
+color: #fff;
+font-size: 30px;
+}
+
+.pC p {
+font-family: sans-serif;
+display: block;         
+width: fit-content;        
+background-color: rgba(0,0,0,0.5);
+margin: 4px auto;     
+padding: 2px 6px;
+}
+
+@keyframes fade-in {
+from {
+opacity: 0;
+}
+to {
+    opacity: 1;
+  }
+}
+
+
+
+.text1{
+margin:0 auto;
+}
+.img2{
+margin:0 auto;
+}
+#Lti {
+position: relative;
+z-index: 101;
+animation: fade-in 1s;
+animation-fill-mode: forwards;
+}
+</style>
+</head>
+  <body>
+<div class="box" id="huwake"></div>
+<div class="background"/></div>
+
+<div style="text-align: center;">
+<div class="pC">
+ <img src="イラスト19.png" width="100%" class="clip" >
+<div id="Lti" class="fadein"><h1><p>HTML practice</p></h1></div>
+
+ <img src="37.png" width="40%" >
+<p>My YoutubeId is "@Asikuri2".</p>
+<br>
+<p><b>My birthday</b> 2009/9/26</p>
+<p><b>The Game I like</b> Minecraft</p>
+<br>
+<p>I have many hobbys.</p>
+<p>Especialy,I love art and javascript.</p>
+<p>I am not good at JS,but this is so fun.</p>
+<p><a href="https://ponamaru.github.io/i-mstick/">中学生時代のサイト</a></p>
+<p><a href="characters2.html">My characters</a></p>
+
+<p></p>
+</div>
+</div>
+
+    <script>
+function changeBackground(e) {
+  if (e.keyCode === 65)  document.body.style.backgroundImage = "url(15.png)";
+
+}
+
+document.addEventListener("keydown", changeBackground);
+
+function PageLoad1(){
+const winH = window.innerHeight;
+document.getElementById("huwake").animate(
+  [
+    { transform: 'translateY(0)' },
+    { transform: 'translateY(-100vh)' }
+  ],
+  {
+    fill: 'forwards',
+    easing: 'ease-out',
+    duration: 500,
+  }
+);
+
+}
+  setTimeout(() => {
+
+  }, 250);
+
+setTimeout (()=> {
+PageLoad1();
+},1000);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,316 @@
+
+<html>
+<head>
+<style>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeCo {
+from {
+background-color: darkgray;
+}
+to {
+background-color: skyblue;
+}
+}
+@keyframes fadeCo2 {
+from {
+background-color: skyblue;
+}
+to {
+background-color: darkgray;
+}
+}
+
+@keyframes upFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-150px); /* 上に移動 */
+  }
+}
+    .box {
+position: relative;
+  position: fixed;
+      width: 100%;
+      height: 100%;
+z-index: 100;
+left: 0;
+top: 0;
+
+}
+
+.background {
+opacity: 0;
+animation: fadeIn 3s forwards;
+
+}
+
+.clip{
+  width: 100%;
+  height: 200px;      
+  object-fit: cover; 
+  object-position: center; 
+}
+
+html{
+
+}
+body {
+  background-attachment: fixed;
+  background-size: cover;
+
+background-color: darkgray;
+}
+
+.backgroundGray {
+animation: fadeCo2 1s forwards;
+}
+.backgroundBlue {
+animation: fadeCo 1s forwards;
+}
+
+#area {
+
+}
+.pC {
+
+color: #fff;
+font-size: 30px;
+}
+
+.pC p {
+font-family: sans-serif;
+display: block;         
+width: fit-content;        
+background-color: rgba(0,0,0,0.5);
+margin: 4px auto;     
+padding: 2px 6px;
+}
+
+
+
+.pC p {
+  white-space: pre-line;
+}
+
+.text1{
+margin:0 auto;
+}
+.img2{
+margin:0 auto;
+}
+#Lti {
+position: relative;
+z-index: 101;
+
+}
+.SCbox {
+  width: 200px;                
+  height: 200px;            
+  border: 1px solid #000;     
+  overflow-x: scroll;     
+}
+#window1{
+position: fixed;
+top: 0px;
+left: 0px;
+width: 100%;
+z-index: 109;
+display: none;
+}
+#winBack{
+position: fixed;
+top: 0px;
+left: 0px;
+display: none;
+z-index: 110;
+}
+</style>
+</head>
+  <body>
+
+<div class="background"/></div>
+
+<div style="text-align: center;">
+<div id="area" class="pC">
+<div id="Lti" class="fadein"><h1><p>My characters</p></h1></div>
+<p><a id="tAll">all</a> <a id="tBLH">BLH</a> <a id="tDMSS">DMSS</a> <a id="tOther">other</a> <a id="tEP" onclick="">EP</a></p>
+</div>
+<div id="winBack" class="pC" onclick="Back1()"><p>back</p></div>
+</div>
+<img id="window1" src="15.png">
+<div id="dbg"></div>
+    <script>
+
+
+var charain = [
+["me","stick man",["0.png","15.png"],["all","abater","EP"],["0.png"]],
+["Boku","bn\nba",["34.png"],["all","BLH"],["34.png"]],
+["Boku","bn\nba",["34.png"],["all","DMSS"],["34.png"]],
+["Boku2","bn\nbaAAA",["15.png"],["all","EP"],["34.png"]],
+["Boku2","bn\nbaAAA",["15.png"],["all","other"],["34.png"]]
+];
+var newS = [[],[],[],[]];
+
+function a(){
+for (let u = 0; u < newS.length; u++) {
+document.getElementById(newS[u]).remove();
+}
+}
+
+var i2 = 0;
+var c3 = 0;
+c3 = charain.length;
+
+function seet(){
+var i3 = 0;
+
+const newe2 = document.createElement('img');
+i3 = newS[1].length;
+newS[1][i3] = "myDivB"+i2;
+newe2.id = newS[1][i3];
+charain[i2][5] = newe2.id;
+newe2.src = charain[i2][2][0];
+newe2.style.width = "20%";
+
+
+const newe = document.createElement('p');
+i3 = newS[0].length;
+newS[0][i3] = "myDiv"+i2;
+newe.id = newS[0][i3];
+newe.textContent = charain[i2][1];
+
+const newe3 = document.createElement('p');
+
+i3 = newS[2].length;
+newS[2][i3] = "myDivC"+i2;
+newe3.id = newS[2][i3];
+newe3.textContent = charain[i2][0];
+
+
+document.getElementById("area").appendChild(newe2);
+document.getElementById("area").appendChild(newe3);
+document.getElementById("area").appendChild(newe);
+}
+
+
+var bc = "darkgray";
+var bc2 = "darkgray";
+var filt = "all";
+var ist = [["tAll","all","darkgray"],["tBLH","BLH","#cc99cc"],["tDMSS","DMSS","skyblue"],["tEP","EP","darkgray"],["tOther","other","darkgray"]];
+
+function tFi(event){
+const id = event.target.id;
+for (let i = 0; i < ist.length; i++) {
+if(ist[i][0]===id){
+bc2 = ist[i][2];
+filt = ist[i][1];
+break;
+}
+}
+
+fadeBack();
+tSelect();
+}
+document.addEventListener("click", tFi);
+
+function tSelect(){
+c3 = 0;
+for (let i = 0; i < charain.length; i++) {
+if(charain[i][3].includes(filt))c3 + 1;
+}
+for (let i = 0; i < newS[0].length*charain.length; i++) {
+document.getElementById(newS[0][0]).remove();
+newS[0].splice(0, 1);
+
+}
+for (let i = 0; i < newS[1].length*charain.length; i++) {
+document.getElementById(newS[1][0]).remove();
+newS[1].splice(0, 1);
+}
+for (let i = 0; i < newS[2].length*charain.length; i++) {
+document.getElementById(newS[2][0]).remove();
+newS[2].splice(0, 1);
+}
+i2=0;
+for (let i = 0; i < charain.length; i++) {
+i2=i;
+if(charain[i][3].includes(filt)){
+seet();
+}
+}
+}
+
+function dbgF(){
+document.getElementById("dbg").innerText = null;
+}
+
+setInterval(dbgF, 50);
+
+tSelect();
+
+function fadeBack(){
+document.body.animate(
+[
+{ backgroundColor: bc, offset: 0},
+{ backgroundColor: bc2, offset: 0.5},
+{ backgroundColor: bc2, offset: 1}
+],
+{
+duration: 1000
+
+},
+);
+setTimeout(() => {
+bc = bc2;
+document.body.style.backgroundColor = bc2;
+}, 900);
+}
+
+fadeBack();
+
+var windowN = 0;
+document.addEventListener("click", () => {
+let ot = event.target.id;
+let it;
+if(newS[1].includes(ot)){
+for (let i = 0; i < charain.length; i++) {
+it = charain[i];
+if(it[5] === event.target.id){
+windowN = i;
+document.getElementById("window1").src= it[2][0];
+wNN =0;
+document.getElementById("window1").style.display="block";
+document.getElementById("winBack").style.display="block";
+}
+}
+
+}
+})
+
+function Back1(){
+document.getElementById("window1").style.display="none";
+document.getElementById("winBack").style.display="none";
+}
+
+let wNN =0;
+document.getElementById("window1").addEventListener("click", () => {
+wNN += 1;
+if(wNN >= charain[windowN][2].length)wNN = 0;
+document.getElementById("window1").src = charain[windowN][2][wNN];
+})
+
+    </script>
+  </body>
+</html>
+
