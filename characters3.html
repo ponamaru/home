@@ -72,6 +72,18 @@ body {
 background-color: darkgray;
 }
 
+#body2 {
+width: 90%;
+height: 90%;    
+background-color: darkgray;
+position: fixed;
+display: block;
+z-index: 1;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+
 .backgroundGray {
 animation: fadeCo2 1s forwards;
 }
@@ -80,7 +92,8 @@ animation: fadeCo 1s forwards;
 }
 
 #area {
-
+position: relative;
+z-index: 2;
 }
 .pC {
 
@@ -125,6 +138,8 @@ position: fixed;
 top: 0px;
 left: 0px;
 width: 100%;
+height: 100%;
+object-fit: contain; 
 z-index: 109;
 display: none;
 }
@@ -135,30 +150,37 @@ left: 0px;
 display: none;
 z-index: 110;
 }
+#topBtn {
+position: relative;
+z-index: 3;
+}
 </style>
 </head>
+
   <body>
 
+<div id="body2"></div>
 <div class="background"/></div>
-
+<div id="topBtn" class="pC"><a href="index.html">Top</a></div>
 <div style="text-align: center;">
 <div id="area" class="pC">
 <div id="Lti" class="fadein"><h1><p>My characters</p></h1></div>
+
 <p><a id="tAll">all</a> <a id="tBLH">BLH</a> <a id="tDMSS">DMSS</a> <a id="tOther">other</a> <a id="tEP" onclick="">EP</a></p>
 </div>
 <div id="winBack" class="pC" onclick="Back1()"><p>back</p></div>
 </div>
 <img id="window1" src="15.png">
 <div id="dbg"></div>
+
     <script>
 
 
 var charain = [
-["me","stick man",["0.png","15.png"],["all","abater","EP"],["0.png"]],
-["Boku","bn\nba",["34.png"],["all","BLH"],["34.png"]],
-["Boku","bn\nba",["34.png"],["all","DMSS"],["34.png"]],
-["Boku2","bn\nbaAAA",["15.png"],["all","EP"],["34.png"]],
-["Boku2","bn\nbaAAA",["15.png"],["all","other"],["34.png"]]
+["me","my abater",["q1.png","37.png"],["all","abater","EP"],["0.png"]],
+["Shin",null,["image.png"],["all","BLH"],["34.png"]],
+["Zhenya",null,["a10.png","a1.png"],["all","DMSS"],["34.png"]],
+["Test",null,["image.png"],["all","other"],["34.png"]]
 ];
 var newS = [[],[],[],[]];
 
