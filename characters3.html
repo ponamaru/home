@@ -166,7 +166,7 @@ z-index: 3;
 <div id="area" class="pC">
 <div id="Lti" class="fadein"><h1><p>My characters</p></h1></div>
 
-<p><a id="tAll">all</a> <a id="tBLH">BLH</a> <a id="tDMSS">DMSS</a> <a id="tOther">other</a> <a id="tEP" onclick="">EP</a></p>
+<p><a id="tAll">all</a> <a id="tBLH">BLH</a> <a id="tDMSS">DMSS</a> <a id="tEP">EP</a><a id="tOther">other</a><a id="tFE">FE</a> </p>
 </div>
 <div id="winBack" class="pC" onclick="Back1()"><p>back</p></div>
 </div>
@@ -177,9 +177,13 @@ z-index: 3;
 
 
 var charain = [
-["me","my abater",["q1.png","37.png"],["all","abater","EP"],["0.png"]],
+["me","my abater",["q1.png","37.png","me2.png","me1.png","me3.png","me4.png"],["all","abater","EP"],["0.png"]],
 ["Shin",null,["image.png"],["all","BLH"],["34.png"]],
-["Zhenya",null,["a10.png","a1.png"],["all","DMSS"],["34.png"]],
+["Zhenya",null,["a10.png","a1.png","a2 mosaic.png","Zhenya1.png","a17.png"],["all","DMSS"],["34.png"]],
+["Gena",null,["a6.png","a9.png","a13.png"],["all","DMSS"],["34.png"]],
+["Yusuke",null,["intro-Yusuke.png","intro-Yusuke-jp.png"],["all","FE"],["34.png"]],
+["Varya",null,["a1fe.png","intro-Varya.png","intro-Varya-jp.png"],["all","FE"],["34.png"]],
+["Arthur",null,["intro-Arthur.png","intro-Arthur-jp.png"],["all","FE"],["34.png"]],
 ["Test",null,["image.png"],["all","other"],["34.png"]]
 ];
 var newS = [[],[],[],[]];
@@ -229,7 +233,7 @@ document.getElementById("area").appendChild(newe);
 var bc = "darkgray";
 var bc2 = "darkgray";
 var filt = "all";
-var ist = [["tAll","all","darkgray"],["tBLH","BLH","#cc99cc"],["tDMSS","DMSS","skyblue"],["tEP","EP","darkgray"],["tOther","other","darkgray"]];
+var ist = [["tAll","all","darkgray"],["tBLH","BLH","#cc99cc"],["tDMSS","DMSS","skyblue"],["tEP","EP","darkgray"],["tOther","other","darkgray"],["tFE","FE","orange"]];
 
 function tFi(event){
 const id = event.target.id;
